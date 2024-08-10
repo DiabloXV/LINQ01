@@ -24,7 +24,14 @@ namespace Day_01_G03
 			=> $"ProductID:{ProductID},ProductName:{ProductName},Category{Category},UnitPrice:{UnitPrice},UnitsInStock:{UnitsInStock}";
 
 	}
-	class Customer
+    public class CaseInsensitiveComparer : IComparer<string>
+    {
+        public int Compare(string x, string y)
+        {
+            return string.Compare(x, y, StringComparison.OrdinalIgnoreCase);
+        }
+    }
+    class Customer
 	{
 		public string CustomerID { get; set; }
 		public string CustomerName { get; set; }
